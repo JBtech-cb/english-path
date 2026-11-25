@@ -5,30 +5,30 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        paper: "#FAF6EF",
-        surface: "#FFFDF8",
-        ink: "#17150F",
-        muted: "#6F6757",
-        line: "#E4DCCD",
-        accent: {
-          DEFAULT: "#11584A",
-          soft: "#DCEBE5",
-          dark: "#0B3F35",
+        paper: "#ECEDE7",
+        surface: "#F8F9F4",
+        ink: "#15170F",
+        muted: "#6B6D62",
+        line: "#D3D5C8",
+        marker: {
+          DEFAULT: "#E7DE6B",
+          soft: "#F1ECBE",
         },
-        sun: "#E9A93C",
+        pen: "#B23E27",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
-        display: ["var(--font-display)", "Georgia", "serif"],
+        display: ["var(--font-display)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
       },
       maxWidth: {
-        page: "72rem",
+        page: "74rem",
       },
-      boxShadow: {
-        card: "0 1px 2px rgba(23, 21, 15, 0.04), 0 12px 32px -16px rgba(23, 21, 15, 0.18)",
+      letterSpacing: {
+        tighter: "-0.035em",
       },
       borderRadius: {
-        xl2: "1.25rem",
+        sheet: "5px",
       },
     },
   },

@@ -3,14 +3,14 @@ import { navLinks, siteConfig } from "@/lib/site";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-line/80 bg-paper/85 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-line bg-paper">
       <div className="container-page flex h-16 items-center justify-between gap-6">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-accent font-display text-sm font-bold text-paper">
-            EP
-          </span>
-          <span className="font-display text-lg font-semibold tracking-tight">
+        <Link href="/" className="flex items-baseline gap-3">
+          <span className="font-display text-[1.35rem] font-semibold tracking-tighter">
             {siteConfig.name}
+          </span>
+          <span className="hidden font-mono text-[0.7rem] text-muted sm:inline">
+            A1–B2
           </span>
         </Link>
 
@@ -19,15 +19,15 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted transition hover:text-ink"
+              className="text-sm text-muted transition-colors hover:text-ink"
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        <Link href="#curriculo" className="btn-primary px-4 py-2 text-sm">
-          Começar
+        <Link href="#curriculo" className="btn-solid px-4 py-2 text-[0.8rem]">
+          Começar pelo A1
         </Link>
       </div>
     </header>

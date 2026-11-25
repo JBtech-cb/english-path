@@ -9,14 +9,15 @@
 
   body {
     @apply bg-paper text-ink antialiased;
+    font-feature-settings: "ss01" on;
   }
 
   ::selection {
-    @apply bg-accent-soft text-accent-dark;
+    @apply bg-marker text-ink;
   }
 
   :focus-visible {
-    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-paper;
+    @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-paper;
   }
 }
 
@@ -25,23 +26,42 @@
     @apply mx-auto w-full max-w-page px-5 sm:px-8;
   }
 
-  .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  /* rotulo pequeno: mono, minusculo, sem caixa alta */
+  .label {
+    @apply font-mono text-[0.7rem] leading-none text-muted;
   }
 
-  .card {
-    @apply rounded-xl2 border border-line bg-surface shadow-card;
+  .panel {
+    @apply border border-line bg-surface;
+    border-radius: 5px;
+  }
+
+  /* marca-texto: so funciona como destaque dentro de uma linha de texto */
+  .mark {
+    @apply bg-marker px-1;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  /* a lacuna de exercicio de completar */
+  .blank {
+    @apply inline-block min-w-[3.5rem] border-b border-dashed border-ink/40 align-baseline;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition;
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 text-sm font-medium transition;
+    border-radius: 4px;
   }
 
-  .btn-primary {
-    @apply btn bg-accent text-paper hover:bg-accent-dark;
+  .btn-solid {
+    @apply btn bg-ink text-paper hover:bg-ink/85;
   }
 
-  .btn-ghost {
-    @apply btn border border-line bg-transparent text-ink hover:border-ink/30 hover:bg-surface;
+  .btn-outline {
+    @apply btn border border-ink/25 text-ink hover:border-ink;
+  }
+
+  .rows > * {
+    @apply border-t border-line;
   }
 }
