@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { curriculumTotals, levels } from "@/lib/site";
+import { curriculumTotals, firstLessonHref, levels } from "@/lib/site";
 
 const steps = [
   {
@@ -44,7 +44,7 @@ export default function HomePage() {
             </p>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
-              <Link href="#curriculo" className="btn-solid">
+              <Link href={firstLessonHref} className="btn-solid">
                 Começar pelo A1
               </Link>
               <Link href="#como-funciona" className="btn-outline">
@@ -58,23 +58,21 @@ export default function HomePage() {
               <div className="flex flex-wrap items-center gap-x-5 gap-y-1 font-mono text-[0.7rem] text-muted">
                 <span>a1</span>
                 <span>unidade 1</span>
-                <span>lição 4</span>
+                <span>lição 1</span>
               </div>
-              <span className="font-mono text-[0.7rem] text-ink">presente simples</span>
+              <span className="font-mono text-[0.7rem] text-ink">verbo to be</span>
             </div>
 
             <p className="mt-7 font-display text-2xl font-medium leading-snug tracking-tight">
-              She <span className="mark">goes</span> to work every day.
+              I <span className="mark">am</span> a student.
             </p>
-            <p className="mt-2 text-sm text-muted">
-              Ela vai ao trabalho todos os dias.
-            </p>
+            <p className="mt-2 text-sm text-muted">Eu sou estudante.</p>
 
             <div className="mt-7">
               <p className="label">escolha a forma correta</p>
               <ul className="mt-3 rows border-b border-line">
-                {["go", "goes", "going"].map((option, index) => {
-                  const isAnswer = option === "goes";
+                {["am", "is", "are"].map((option, index) => {
+                  const isAnswer = option === "am";
                   return (
                     <li
                       key={option}
@@ -117,12 +115,13 @@ export default function HomePage() {
             </div>
 
             <p className="mt-5 text-[0.85rem] leading-relaxed text-muted">
-              Na terceira pessoa do singular, o verbo ganha{" "}
-              <span className="font-mono text-ink">-s</span>.
+              Com <span className="font-mono text-ink">I</span> a forma é sempre{" "}
+              <span className="font-mono text-ink">am</span>. He e she pedem is; we e
+              they pedem are.
             </p>
             <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-1 font-mono text-[0.7rem] text-muted">
-              <span>8 de 10 corretas</span>
-              <span>revisa amanhã</span>
+              <span>exercício 1 de 8</span>
+              <span>15 minutos</span>
             </div>
           </div>
         </div>
@@ -188,34 +187,47 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="max-w-xs text-sm leading-relaxed text-muted">
-              Cada nível fecha com um teste de saída próprio. Se você travar, a unidade
-              fica aberta até a nota passar.
-            </p>
+                Cada nível fecha com um teste de saída próprio. Se você travar, a unidade
+                fica aberta até a nota passar.
+              </p>
           </div>
 
           <ul className="mt-12 rows border-b border-line">
             {levels.map((level) => (
-              <li
-                key={level.code}
-                className="grid gap-4 py-7 transition-colors hover:bg-surface sm:grid-cols-[5rem_1fr_auto] sm:items-baseline sm:gap-8 sm:px-2"
-              >
-                <span className="font-display text-2xl font-semibold tracking-tighter">
-                  {level.code}
-                </span>
-                <div>
-                  <h3 className="text-[1rem] font-medium">{level.label}</h3>
-                  <p className="mt-1 max-w-[42rem] text-sm leading-relaxed text-muted">
-                    {level.summary}
+              <li key={level.code}>
+                <Link
+                  href={`/curriculo/${level.code.toLowerCase()}`}
+                  className="grid gap-4 py-7 transition-colors hover:bg-surface sm:grid-cols-[5rem_1fr_auto] sm:items-baseline sm:gap-8 sm:px-2"
+                >
+                  <span className="font-display text-2xl font-semibold tracking-tighter">
+                    {level.code}
+                  </span>
+                  <div>
+                    <h3 className="text-[1rem] font-medium">{level.label}</h3>
+                    <p className="mt-1 max-w-[42rem] text-sm leading-relaxed text-muted">
+                      {level.summary}
+                    </p>
+                  </div>
+                  <p className="font-mono text-[0.7rem] text-muted sm:text-right">
+                    {level.units} unidades
+                    <br />
+                    {level.lessons} lições
                   </p>
-                </div>
-                <p className="font-mono text-[0.7rem] text-muted sm:text-right">
-                  {level.units} unidades
-                  <br />
-                  {level.lessons} lições
-                </p>
+                </Link>
               </li>
             ))}
           </ul>
+
+          <p className="mt-6 text-sm leading-relaxed text-muted">
+            Já está escrito:{" "}
+            <Link
+              href={firstLessonHref}
+              className="text-ink underline decoration-line underline-offset-4 transition-colors hover:decoration-ink"
+            >
+              A1, unidade 1 — Hello, I am…
+            </Link>
+            . As quatro lições estão abertas, com 33 exercícios corrigidos na hora.
+          </p>
         </div>
       </section>
 
@@ -231,7 +243,7 @@ export default function HomePage() {
                 palavra ficam salvas aqui no navegador. Sem conta para criar.
               </p>
             </div>
-            <Link href="#curriculo" className="btn-solid shrink-0">
+            <Link href={firstLessonHref} className="btn-solid shrink-0">
               Abrir a primeira lição
             </Link>
           </div>
