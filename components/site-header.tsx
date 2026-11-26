@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navLinks, siteConfig } from "@/lib/site";
+import { firstLessonHref, navLinks, siteConfig } from "@/lib/site";
 
 export function SiteHeader() {
   return (
@@ -26,7 +26,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <Link href="#curriculo" className="btn-solid px-4 py-2 text-[0.8rem]">
+        <Link
+          href={firstLessonHref}
+          className="btn-solid px-4 py-2 text-[0.8rem]"
+        >
           Começar pelo A1
         </Link>
       </div>

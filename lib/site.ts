@@ -11,10 +11,12 @@ export type NavLink = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Como funciona", href: "#como-funciona" },
-  { label: "Currículo", href: "#curriculo" },
-  { label: "Progresso", href: "#progresso" },
+  { label: "Currículo", href: "/curriculo" },
+  { label: "Como funciona", href: "/#como-funciona" },
+  { label: "Progresso", href: "/#progresso" },
 ];
+
+export const firstLessonHref = "/curriculo/a1/unidade-1/licao-1";
 
 export type Level = {
   code: "A1" | "A2" | "B1" | "B2";
